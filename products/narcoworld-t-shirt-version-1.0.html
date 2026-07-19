@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NARCOWORLD T-SHIRT VERSION 1.0</title>
+    <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="narcoworld-t-shirt-version-1.0.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo upper">NARCOWORLD</div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const status = document.querySelector(".product-status");
+            const checkoutbutton = document.querySelector(".product-add-to-cart");
+
+            if (status && status.textContent.trim().toLowerCase() === "out of stock") {
+                checkoutbutton.disabled = true;
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('wheel', function(event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoBtn = document.querySelector(".logo.upper");
+
+            logoBtn.addEventListener("click", () => {
+                window.location.href = "";
+            });
+        });
+    </script>
+
+    <div class="marquee">
+        <div class="marquee-track" id="marquee-track">
+            <span class="upper">@NARCOWORLD</span>
+            <span class="upper">@ethxnblxd</span>
+            <span class="upper">@lijhe</span>
+        </div>
+    </div>
+
+    <div class="store">
+        <div class="product-card">
+            <img class="product-image" src="../assets/store/NARCOWORLD T-SHIRT VERSION 1.0 WHITE.png" draggable="false" />
+
+            <div class="product-info">
+                <div class="product-name">NARCOWORLD T-SHIRT VERSION 1.0</div>
+                <div class="product-price">$0.00 AUD</div>
+
+                <div class="product-sizes">
+                    <button class="product-size">S</button>
+                    <button class="product-size">M</button>
+                    <button class="product-size">L</button>
+                    <button class="product-size">XL</button>
+                    <button class="product-size">2XL</button>
+                </div>
+
+                <div class="product-styles">
+                    <button class="product-style" data-image="../assets/store/NARCOWORLD T-SHIRT VERSION 1.0 WHITE.png" style="background-color:black;"></button>
+
+                    <button class="product-style" data-image="../assets/store/NARCOWORLD T-SHIRT VERSION 1.0 BLACK.png" style="background-color:white;"></button>
+                </div>
+
+                <div class="product-status">Out of Stock</div>
+
+                <button class="product-add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const image = document.querySelector(".product-image");
+
+        const styleButtons = document.querySelectorAll(".product-style");
+        const sizeButtons = document.querySelectorAll(".product-size");
+
+        sizeButtons.forEach(sizeButton => {
+            sizeButton.addEventListener("click", () => {
+
+                sizeButtons.forEach(btn => btn.classList.remove("active"));
+                sizeButton.classList.add("active");
+
+            });
+        });
+
+        const firstSizeButton = sizeButtons[0];
+
+        if (firstSizeButton) {
+            firstSizeButton.classList.add("active");
+        }
+
+        styleButtons.forEach(styleButton => {
+            styleButton.addEventListener("click", () => {
+
+                const newImage = styleButton.dataset.image;
+
+                if (newImage) {
+                    image.src = newImage;
+                }
+
+                styleButtons.forEach(btn => btn.classList.remove("active"));
+                styleButton.classList.add("active");
+
+            });
+        });
+
+        const firstStyleButton = styleButtons[0];
+
+        if (firstStyleButton) {
+            firstStyleButton.classList.add("active");
+
+            const defaultImage = firstStyleButton.dataset.image;
+
+            if (defaultImage) {
+                image.src = defaultImage;
+            }
+        }
+
+    });
+    </script>
+
+    <div class="marquee marquee-footer">
+        <div class="marquee-track">
+            <span class="upper">@NARCOWORLD</span>
+            <span class="upper">@ethxnblxd</span>
+            <span class="upper">@lijhe</span>
+        </div>
+    </div>
+
+    <footer class="upper">
+        © 2026 NARCOWORLD. All rights reserved. <br>
+        Designed by ethxnblxd.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const speed = 1;
+
+            document.querySelectorAll(".marquee-track").forEach(track => {
+                const originalHTML = track.innerHTML;
+                while (track.scrollWidth < window.innerWidth * 3) {
+                    track.innerHTML += originalHTML;
+                }
+
+                let x = 0;
+
+                function animate() {
+                    x -= speed;
+                    if (Math.abs(x) >= track.scrollWidth / 2) {
+                        x = 0;
+                    }
+                    track.style.transform = `translateX(${x}px)`;
+                    requestAnimationFrame(animate);
+                }
+
+                animate();
+            });
+        });
+    </script>
+</body>
+</html>

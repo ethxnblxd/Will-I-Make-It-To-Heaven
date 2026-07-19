@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Will I Make It To Heaven</title>
+    <link rel="icon" href="assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="preload" href="assets/artists/ethxnblxd/ethxnblxd.png" as="image">
+    <link rel="preload" href="assets/artists/lijhe/lijhe.png" as="image">
+    <link rel="preload" href="assets/artists/mac10/mac10.png" as="image">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-buttons">
+            <a onclick="openPopup('account-settings-popup')" class="nav-button">
+                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" style="filter: invert();" draggable="false">
+            </a>
+
+            <a onclick="openPopup('shopping-cart-popup')" class="nav-button">
+                <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" style="filter: invert();" draggable="false">
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        window.addEventListener('wheel', function(event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoBtn = document.querySelector(".logo.upper");
+
+            logoBtn.addEventListener("click", () => {
+                window.location.href = "";
+            });
+        });
+    </script>
+
+    <section class="hero">
+        <div>
+            <h1 class="upper">Will I Make It To Heaven</h1>
+            <div class="sub upper">"Australian Underground"</div>
+
+            <div class="tab-buttons">
+                <button onclick="openPage('store')" class="sub link tab-btn" data-page="store" disabled>
+                    Store
+                </button>
+
+                <button onclick="openPage('artists')" class="sub link tab-btn" data-page="artists">
+                    Artists
+                </button>
+
+                <button onclick="openPage('tours')" class="sub link tab-btn" data-page="tours">
+                    Tours
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="account-settings-popup">
+        <div class="account-settings-popup-box">
+            <span></span>
+        </div>
+    </div>
+
+    <div class="shopping-cart">
+    </div>
+
+    <section id="store" class="page-section store" style="display:none;">
+        <div class="store-grid">
+            <a href="products/narcoworld-t-shirt-version-1.0.html" class="product-card">
+                <img src="assets/store/NARCOWORLD T-SHIRT VERSION 1.0 WHITE.png" draggable="false" />
+                <span class="product-name">NARCOWORLD T-SHIRT VERSION 1.0</span>
+                <p class="product-price">$0.00</p>
+                <p class="product-status">Out of Stock</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="artists" class="page-section artists" style="display:none;">
+        <div class="artist-grid">
+            <a href="ethxnblxd" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761610000939b615d9b1515b630a1dc4ca2a8" draggable="false" />
+                <span class="artist-name">ethxnblxd</span>
+            </a>
+
+            <a href="lijhe" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761610000939b265dd19dfab722614f68026f" draggable="false" />
+                <span class="artist-name">lijhe</span>
+            </a>
+
+            <a href="mac10" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761670000ecd455a1a078ba221a7b66bd70a0" draggable="false" />
+                <span class="artist-name">mac10</span>
+            </a>
+
+            <a href="unless" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761610000939bc7648aeb03c36c1d550c1d88" draggable="false" />
+                <span class="artist-name">unless</span>
+            </a>
+
+            <a href="kayy" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761610000939b642022c212979d4613b80c36" draggable="false" />
+                <span class="artist-name">KAYY</span>
+            </a>
+
+            <a href="santanawlr" class="artist-card">
+                <img src="https://i.scdn.co/image/ab6761610000939b2520e8bcf8abdc85abc490b9" draggable="false" />
+                <span class="artist-name">santanawlr</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="tours" class="page-section tours" style="display:none;">
+        <div class="tour-cards">
+            <div class="tour-card">
+                <div class="tour-left">
+                    <span class="tour-date">N/A</span>
+                    <span class="tour-year">N/A</span>
+                </div>
+
+                <div class="tour-middle">
+                    <h3>N/A</h3>
+                    <p>N/A</p>
+                </div>
+
+                <a href="#" class="tour-btn">No Tours Scheduled Currently.</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="upper">
+        © 2026 Will I Make It To Heaven. All rights reserved.<br>
+        Designed by ethxnblxd.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            function openPopup(pageId) {
+                popuptab = document.getElementsByClassName(`".${pageId}"`);
+
+                popuptab.style.display = "block";
+            }
+
+            function openPage(pageId) {
+                document.querySelectorAll(".page-section").forEach(section => {
+                    section.style.display = "none";
+                });
+
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.style.display = "block";
+                }
+
+                document.querySelectorAll(".tab-btn").forEach(button => {
+                    button.classList.remove("active");
+                });
+
+                const activeButton = document.querySelector(`button[data-page="${pageId}"]`);
+                if (activeButton) {
+                    activeButton.classList.add("active");
+                }
+            }
+
+            openPage("artists");
+
+            const defaultButton = document.querySelector('button[data-page="artists"]');
+            if (defaultButton) {
+                defaultButton.classList.add("active");
+            }
+
+            document.querySelectorAll('.tab-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const pageId = e.target.getAttribute('data-page');
+                    openPage(pageId);
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const speed = 1;
+
+            document.querySelectorAll(".marquee-track").forEach(track => {
+                const originalHTML = track.innerHTML;
+                while (track.scrollWidth < window.innerWidth * 3) {
+                    track.innerHTML += originalHTML;
+                }
+
+                let x = 0;
+
+                function animate() {
+                    x -= speed;
+                    if (Math.abs(x) >= track.scrollWidth / 2) {
+                        x = 0;
+                    }
+                    track.style.transform = `translateX(${x}px)`;
+                    requestAnimationFrame(animate);
+                }
+
+                animate();
+            });
+        });
+    </script>
+</body>
+</html>
