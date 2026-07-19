@@ -453,15 +453,6 @@ footer {
         letter-spacing: 0.3em;
     }
 
-    .nav-button {
-        right: 1.1rem;
-    }
-
-    .nav-button img {
-        width: 24px;   /* adjust as needed */
-        height: 24px;
-    }
-
     .store-grid {
         margin-top: 30px;
         display: grid;
@@ -481,19 +472,6 @@ footer {
         max-width: 100%;
     }
 
-    /* IMAGE SAFETY */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .tab-buttons {
-        flex-direction: row;        /* keep horizontal */
-        flex-wrap: wrap;           /* allows wrapping if needed */
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
     /* FIX HUGE SPACING ISSUES */
     .store {
         margin-top: 120px; /* was 370px */
@@ -509,18 +487,12 @@ footer {
     }
 
     .artist-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 200px);
         gap: 1rem;
-        padding: 0 1rem;
-    }
-
-    .hero {
-        margin-top: -20px;
     }
 
     .artists {
-        margin-top: -50px;
-        margin-bottom: -18px;
+        padding-bottom: 0px;
     }
 
     .artist-card {
@@ -528,8 +500,9 @@ footer {
     }
 
     .artist-card img {
-        width: 100%;
-        max-width: 140px; /* controls circle size */
+        max-width: 100px; /* controls circle size */
+        max-height: 100px;
+        height: 100%;
     }
 
     .artist-name {
@@ -541,30 +514,70 @@ footer {
         flex-wrap: nowrap; /* keep buttons on one line */
         gap: 1rem;
         justify-content: center;
-        width: 100%;
-        max-width: 400px; /* limit max width for buttons container */
+        width: 100%; /* limit max width for buttons container */
         box-sizing: border-box;
+        min-width: 50px;
+    }
+
+    .tab-buttons button {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #tours {
-        padding-top: 2rem;
-        padding-bottom: 7.90rem;
+        padding-top: 6rem;
+        padding-bottom: 13rem;
     }
 
     .tour-card {
         border-radius: 14px;
         display: flex;
         align-items: center;
-        max-width: 400px;
+        max-width: 300px;
+        max-height: 200px;
+    }
+
+    .tour-left {
+    text-align: center;
+    min-width: 20px;
+    }
+
+    .tour-date {
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    }
+
+    .tour-year {
+    font-size: 12px;
+    color: #777;
+    }
+
+    .tour-middle h3 {
+    font-size: 12px;
+    font-weight: 600;
+    }
+
+    .tour-middle p {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #666;
     }
 
     .tour-btn {
         padding: 0px;
-        margin-left: -5px;
+        margin-left: -8px;
         max-width: 170px;
-        font-size: 0.8em;
+        font-size: 0.7em;
         align-items: center;
         align-content: center;
         text-align: center;
+    }
+
+    footer {
+        margin-top: -50px;
+        font-size: 8px;
     }
 }
