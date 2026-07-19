@@ -6,10 +6,6 @@
     <title>Will I Make It To Heaven</title>
     <link rel="icon" href="assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
-
-    <link rel="preload" href="assets/artists/ethxnblxd/ethxnblxd.png" as="image">
-    <link rel="preload" href="assets/artists/lijhe/lijhe.png" as="image">
-    <link rel="preload" href="assets/artists/mac10/mac10.png" as="image">
 </head>
 
 <body>
@@ -31,14 +27,6 @@
                 event.preventDefault();
             }
         }, { passive: false });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const logoBtn = document.querySelector(".logo.upper");
-
-            logoBtn.addEventListener("click", () => {
-                window.location.href = "";
-            });
-        });
     </script>
 
     <section class="hero">
@@ -179,32 +167,6 @@
                     const pageId = e.target.getAttribute('data-page');
                     openPage(pageId);
                 });
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const speed = 1;
-
-            document.querySelectorAll(".marquee-track").forEach(track => {
-                const originalHTML = track.innerHTML;
-                while (track.scrollWidth < window.innerWidth * 3) {
-                    track.innerHTML += originalHTML;
-                }
-
-                let x = 0;
-
-                function animate() {
-                    x -= speed;
-                    if (Math.abs(x) >= track.scrollWidth / 2) {
-                        x = 0;
-                    }
-                    track.style.transform = `translateX(${x}px)`;
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
             });
         });
     </script>
