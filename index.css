@@ -280,7 +280,7 @@ nav .logo:hover {
 
 .artist-grid {
   display: grid;
-  grid-template-columns: repeat(6, 300px);
+  grid-template-columns: repeat(5, 300px);
   justify-content: center;
   gap: 1rem;
   padding: 0 2rem;
